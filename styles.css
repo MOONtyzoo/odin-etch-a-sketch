@@ -1,8 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'roboto';
+    box-sizing: border-box;
+
+    height: 100vh;
+    margin: 0px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
     font-size: 48px;
     text-align: center;
+}
+
+#grid {
+    border-style:solid;
+    border-color:black;
+
+    height: min(70vh, 95vw);
+    width: auto;
+    aspect-ratio: 1;
 }
