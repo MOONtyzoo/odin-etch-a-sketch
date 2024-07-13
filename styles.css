@@ -27,3 +27,16 @@ h1 {
     width: auto;
     aspect-ratio: 1;
 }
+
+#buttonBar {
+    margin: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    gap: 10px;
+}
+
+#buttonBar * {
+    font-size: 18px;
+}
