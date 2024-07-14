@@ -21,10 +21,26 @@ h1 {
 
 #grid {
     border-style:solid;
-    border-color:black;
+    border-color:#DDDDDD;
 
     height: min(70vh, 95vw);
     width: auto;
+    aspect-ratio: 1;
+
+    padding: 10px;
+
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    justify-items: start;
+}
+
+.gridNode {
+    border-style:solid;
+    border-color:black;
+    border-width: 1px;
+
+    width: 30px;
     aspect-ratio: 1;
 }
 
