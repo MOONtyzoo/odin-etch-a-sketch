@@ -20,5 +20,12 @@ function clearGrid() {
 
 function generateGrid(size) {
     clearGrid()
+    for (let i = 0; i < size*size; i++) {
+        let newGridNode = document.createElement("div")
+        newGridNode.className = "gridNode"
+        grid.appendChild(newGridNode)
+    }
     alert(`Generating a ${size}x${size} grid`)
 }
+
+generateGrid(4)
