@@ -1,16 +1,28 @@
 let grid = document.querySelector("#grid")
+let gridSize = 4;
 
 let buttonBar = document.querySelector("#buttonBar")
 let gridSizeInput = buttonBar.querySelector("#gridSizeInput")
 let generateButton = buttonBar.querySelector("#generateButton")
 let resetButton = buttonBar.querySelector("#resetButton")
 
-generateButton.addEventListener("click", () => {
-    let gridSize = gridSizeInput.value
-    gridSizeInput.value = ""
-    generateGrid(gridSize)
+let buttonWidthPercentage = 10;
+
+grid.addEventListener("mouseover", (event) => {
+    let target = event.target;
+    if (target.className == "colorBlock") {
+        changeColor(target)
+    }
 })
-resetButton.addEventListener("click", () => clearGrid())
+
+generateButton.addEventListener("click", () => {
+    gridSize = gridSizeInput.value
+    gridSizeInput.value = ""
+    generateGrid()
+})
+resetButton.addEventListener("click", () => {
+    generateGrid()
+})
 
 function clearGrid() {
     while (grid.firstChild) {
@@ -18,16 +30,29 @@ function clearGrid() {
     }
 }
 
-function generateGrid(size) {
+// Will overwrite the previous grid and referesh the contents
+function generateGrid() {
     clearGrid()
-    let buttonWidthPercentage = 100/size
-    for (let i = 0; i < size*size; i++) {
-        let newGridNode = document.createElement("div")
-        newGridNode.className = "gridNode"
-        newGridNode.style.flexBasis = `${buttonWidthPercentage}%`
-        grid.appendChild(newGridNode)
+    buttonWidthPercentage = 100/gridSize
+    for (let i = 0; i < gridSize*gridSize; i++) {
+        addGridNode()
     }
-    alert(`Generating a ${size}x${size} grid`)
 }
 
-generateGrid(4)
+function addGridNode() {
+    let newGridNode = document.createElement("div")
+    newGridNode.className = "gridNode"
+    newGridNode.style.flexBasis = `${buttonWidthPercentage}%`
+
+    let colorBlock = document.createElement("div")
+    colorBlock.className = "colorBlock"
+    newGridNode.appendChild(colorBlock)
+
+    grid.appendChild(newGridNode)
+}
+
+function changeColor(colorBlock) {
+    colorBlock.style.backgroundColor = "#000000"
+}
+
+generateGrid(gridSize)
