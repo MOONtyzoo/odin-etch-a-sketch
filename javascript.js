@@ -20,9 +20,11 @@ function clearGrid() {
 
 function generateGrid(size) {
     clearGrid()
+    let buttonWidthPercentage = 100/size
     for (let i = 0; i < size*size; i++) {
         let newGridNode = document.createElement("div")
         newGridNode.className = "gridNode"
+        newGridNode.style.flexBasis = `${buttonWidthPercentage}%`
         grid.appendChild(newGridNode)
     }
     alert(`Generating a ${size}x${size} grid`)

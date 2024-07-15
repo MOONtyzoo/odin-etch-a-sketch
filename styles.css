@@ -26,12 +26,14 @@ h1 {
     height: min(70vh, 95vw);
     width: auto;
     aspect-ratio: 1;
+    row-gap: 0px;
+    column-gap: 0px;
 
     padding: 10px;
 
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: space-evenly;
     align-items: start;
     justify-items: start;
 }
@@ -41,7 +43,8 @@ h1 {
     border-color:black;
     border-width: 1px;
 
-    width: 30px;
+    /* Flex-basis is determined by javascript to fit grid */
+    flex: 0 0 30px;
     aspect-ratio: 1;
 }
 
