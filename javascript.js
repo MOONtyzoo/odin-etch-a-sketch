@@ -52,7 +52,29 @@ function addGridNode() {
 }
 
 function changeColor(colorBlock) {
-    colorBlock.style.backgroundColor = "#000000"
+    if (colorBlock.style.backgroundColor == "") {
+        let H = Math.floor(Math.random() * 360)
+        let S = 100
+        let L = 45
+        let A = 0.1
+        colorBlock.style.backgroundColor = `hsl(${H} ${S}% ${L}% / ${A})`
+    } else {
+        let colorStr = colorBlock.style.backgroundColor
+        colorStr = colorStr.slice(colorStr.indexOf('(') + 1, colorStr.indexOf(')'));
+        let colorArr = colorStr.split(','),
+            i = colorArr.length;
+
+        while (i--)
+        {
+            colorArr[i] = parseFloat(colorArr[i], 10);
+        }
+
+        let R = colorArr[0]
+        let G = colorArr[1]
+        let B = colorArr[2]
+        let A = Math.min(colorArr[3] + 0.1, 1)
+        colorBlock.style.backgroundColor = `rgb(${R} ${G} ${B} / ${A})`
+    }
 }
 
 generateGrid(gridSize)
