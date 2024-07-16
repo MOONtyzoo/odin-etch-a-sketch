@@ -14,9 +14,23 @@ body {
     align-items: center;
 }
 
+#topBar {
+    width: 70vh;
+    padding-left: 10px;
+    padding-right: 10px;
+    display:flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
 h1 {
     font-size: 48px;
     text-align: center;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 0px;
 }
 
 #grid {

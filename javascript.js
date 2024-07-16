@@ -1,6 +1,9 @@
 let grid = document.querySelector("#grid")
 let gridSize = 4;
 
+let topBar = document.querySelector("#topBar")
+let gridSizeLabel = topBar.querySelector("#gridSizeLabel")
+
 let buttonBar = document.querySelector("#buttonBar")
 let gridSizeInput = buttonBar.querySelector("#gridSizeInput")
 let generateButton = buttonBar.querySelector("#generateButton")
@@ -37,6 +40,7 @@ function generateGrid() {
     for (let i = 0; i < gridSize*gridSize; i++) {
         addGridNode()
     }
+    gridSizeLabel.textContent = `Grid Size: ${gridSize}x${gridSize}`
 }
 
 function addGridNode() {
