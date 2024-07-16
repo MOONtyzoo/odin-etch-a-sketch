@@ -19,6 +19,10 @@ grid.addEventListener("mouseover", (event) => {
 })
 
 generateButton.addEventListener("click", () => {
+    if (gridSizeInput.value > 32) {
+        alert("Grid size limit reached!")
+        gridSizeInput.value = Math.min(gridSizeInput.value, 32)
+    }
     gridSize = gridSizeInput.value
     gridSizeInput.value = ""
     generateGrid()
